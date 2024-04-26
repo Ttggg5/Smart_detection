@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>瑕疵分析</title>
+    <!-- 引用 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* 淺灰色背景 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 確保頁面高於視窗 */
+        }
+
+        /* 确保内容区域伸展到页面底部 */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #343a40; /* 深色导航栏 */
+            color: #fff;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #495057; /* 懸停 */
+        }
+
+        .jumbotron {
+            background-color: #e9ecef; /* 灰色背景 */
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px; /* 圓角 */
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>HOME</h1>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">瑕疵分析</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">首頁</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">分析</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">聯繫我們</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="jumbotron">
+            <h1 class="display-4">手機玻璃瑕疵分析系統</h1>
+            <p class="lead">本系統使用先進的技術來檢測工業產品中的瑕疵和異常。</p>
+            <hr class="my-4">
+            <p>請選擇要分析的圖片，並查看檢測結果。</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">開始檢測</a> 
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 瑕疵分析公司 | 聯繫我們: shenswaiger@gmail.com</p>
+    </footer>
+
+    <!-- 引用 Bootstrap 和 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
