@@ -12,7 +12,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* 保证页面最小高度 */
+            min-height: 100vh; /* 最小高度 */
         }
 
         .content {
@@ -26,7 +26,7 @@
         footer {
             background-color: #343a40; /* 深色背景 */
             color: #fff; /* 白色文字 */
-            text-align: center; /* 居中对齐 */
+            text-align: center; /* 居中*/
             padding: 10px; /* 内边距 */
         }
 
@@ -34,9 +34,9 @@
             background-color: #fff; /* 白色背景 */
             padding: 50px;
             border-radius: 10px; /* 圆角 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
-            max-width: 800px; /* 最大宽度 */
-            text-align: center; /* 文本居中 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 陰影 */
+            max-width: 800px; /* 最大寬度 */
+            text-align: center; /* 居中 */
         }
 
         .form-group {
@@ -44,15 +44,15 @@
         }
 
         .btn-primary {
-            background-color: #007bff; /* 蓝色 */
-            border: none; /* 无边框 */
+            background-color: #007bff; /* 藍色 */
+            border: none; /* 無邊框 */
             padding: 10px 20px;
             border-radius: 5px; /* 圆角 */
             cursor: pointer; /* 鼠标指针 */
         }
 
         .btn-primary:hover {
-            background-color: #0056b3; /* 悬停时更深的蓝色 */
+            background-color: #0056b3; /* 懸停*/
         }
 
         .nav-link {
@@ -94,12 +94,12 @@
                 <button type="submit" class="btn btn-primary">登入</button>
             </form>
             <br>
-            <p>還未擁有帳號?<a href="{% url 'register' %}"> &ensp; 註冊</a></p> <!-- 注册链接 -->
+            <p>還未擁有帳號?<a href="{% url 'register' %}"> &ensp; 註冊</a></p> <!-- 註冊鏈結 -->
         </div>
     </div>
 
     <footer>
-        <p>© 2024 瑕疵分析公司 | 联络我们: info@example.com</p>
+        <p>© 2024 瑕疵分析公司 | 聯絡資訊: info@example.com</p>
     </footer>
 
     <!-- 引用 Bootstrap 和 jQuery -->
