@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>註冊</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- 引用 Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">瑕疵分析系统</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">首頁</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">分析</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="card">
+            <h2>註冊</h2>
+            <br>
+            <form id="register_form" method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" required placeholder="用戶名稱">
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" required placeholder="密碼">
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" name="password_confirm" class="form-control" required placeholder="確認密碼">
+                    <p id="error_text" style="color: indianred; font-size: small; text-align: left; display: none; margin-left: 10px;">密碼不一致</p>
+                </div>
+                <button type="submit" class="btn btn-primary">註冊</button>
+            </form>
+            
+            <p style="color: {{ state_color }};">{{ state }}</p>
+            <br>
+            <p>已經擁有帳號了?<a href="{% url 'login' %}" style="margin-left: 10px;">登入</a></p> <!-- 註冊鏈結 -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 瑕疵分析公司 | 聯絡資訊: info@example.com</p>
+    </footer>
+
+    <!-- 引用 Bootstrap 和 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $('#register_form').on('submit', function() {
+            let password = $('input[name="password"]').val();
+            let password_confirm = $('input[name="password_confirm"]').val();
+            
+            if (password !== password_confirm) {
+                $('#error_text').show();
+                return false;
+            }
+            
+            $('#error_text').hide();
+            return true;
+        });
+        
+    </script>
+</body>
+</html>
+
