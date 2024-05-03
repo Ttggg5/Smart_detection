@@ -1,0 +1,30 @@
+<!-- user.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  <!-- 引用 Bootstrap CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>用户列表</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                    <tr>
+                        <td>{{ account.username }}</td>  <!-- 显示用户名 -->
+                        <td>{{ account.created_at }}</td>  <!-- 显示创建时间 -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
