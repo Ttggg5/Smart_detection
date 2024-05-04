@@ -26,7 +26,7 @@
         footer {
             background-color: #343a40; /* 深色背景 */
             color: #fff; /* 白色文字 */
-            text-align: center; /* 居中*/
+            text-align: center; /* 居中 */
             padding: 10px; /* 内边距 */
         }
 
@@ -34,25 +34,25 @@
             background-color: #fff; /* 白色背景 */
             padding: 50px;
             border-radius: 10px; /* 圆角 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 陰影 */
-            max-width: 800px; /* 最大寬度 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 阴影 */
+            max-width: 800px; /* 最大宽度 */
             text-align: center; /* 居中 */
         }
 
         .form-group {
-            margin-bottom: 15px; /* 間距 */
+            margin-bottom: 15px; /* 间距 */
         }
 
         .btn-primary {
-            background-color: #007bff; /* 藍色 */
-            border: none; /* 無邊框 */
+            background-color: #007bff; /* 蓝色 */
+            border: none; /* 无边框 */
             padding: 10px 20px;
             border-radius: 5px; /* 圆角 */
             cursor: pointer; /* 鼠标指针 */
         }
 
         .btn-primary:hover {
-            background-color: #0056b3; /* 懸停*/
+            background-color: #0056b3; /* 悬停 */
         }
 
         .nav-link {
@@ -71,7 +71,7 @@
         <a class="navbar-brand" href="#">瑕疵分析系统</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#">首頁</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">首页</a></li> <!-- 链接到首页 -->
                 <li class="nav-item"><a class="nav-link" href="#">分析</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
             </ul>
@@ -80,26 +80,35 @@
 
     <div class="content">
         <div class="card">
-            <h2>登入    </h2>
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
+            <h2>登入</h2>
+            <form method="post" action="{% url 'login' %}"> <!-- 表单提交到登录视图 -->
+                {% csrf_token %} <!-- CSRF 令牌，用于安全 -->
                 <div class="form-group">
-                    <label for="username">用戶名稱</label>
-                    <input type="text" name="username" class="form-control" required>
+                    <label for="username">用戶名</label>
+                    <input type="text" name="username" class="form-control" required placeholder="請輸入用戶名"> <!-- 加上占位符 -->
                 </div>
                 <div class="form-group">
                     <label for="password">密碼</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control" required placeholder="請輸入密碼"> <!-- 加上占位符 -->
                 </div>
                 <button type="submit" class="btn btn-primary">登入</button>
             </form>
-            <br>
-            <p>還未擁有帳號?<a href="{% url 'register' %}"> &ensp; 註冊</a></p> <!-- 註冊鏈結 -->
+
+            <!-- 错误消息显示区域 -->
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <p>還未擁有帳號?<a href="{% url 'register' %}">注册</a></p> <!-- 注册链接 -->
         </div>
     </div>
 
     <footer>
-        <p>© 2024 瑕疵分析公司 | 聯絡資訊: xxx@example.com</p>
+        <p>© 2024 瑕疵分析公司 | 聯絡資訊: xxx@example.com</p> <!-- 换上正确的联系信息 -->
     </footer>
 
     <!-- 引用 Bootstrap 和 jQuery -->
@@ -107,4 +116,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

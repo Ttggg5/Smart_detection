@@ -7,7 +7,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>用戶列表</h1>
+        <h1  class="text-center">用戶列表</h1>
+        <br>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -19,6 +20,7 @@
                 {% for account in accounts %}
                     <tr>
                         <td>{{ account.username }}</td>  <!-- users name-->
+                        <td>{{ account.password }}</td> 
                         <td>{{ account.created_at }}</td>  <!-- 显示创建时间 -->
                     </tr>
                 {% endfor %}
