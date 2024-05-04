@@ -46,7 +46,13 @@
             <p>已經擁有帳號了?<a href="{% url 'login' %}" style="margin-left: 10px;">登入</a></p> <!-- 註冊鏈結 -->
         </div>
     </div>
-
+    {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+    {% endif %}
     <footer>
         <p>© 2024 瑕疵分析公司 | 聯絡資訊: info@example.com</p>
     </footer>

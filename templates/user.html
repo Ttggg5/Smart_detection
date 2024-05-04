@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th>user name</th>
+                    <th>hashed password</th>
                     <th>Time</th>
                 </tr>
             </thead>
@@ -21,7 +22,11 @@
                     <tr>
                         <td>{{ account.username }}</td>  <!-- users name-->
                         <td>{{ account.password }}</td> 
-                        <td>{{ account.created_at }}</td>  <!-- 显示创建时间 -->
+                        <td>{{ account.created_at }}</td>  <!-- time -->
+                        <td>
+                            <!-- Delete user -->
+                            <a href="{% url 'delete_user' account.id %}" class="btn btn-danger" onclick="return confirm('確認刪除？')">刪除</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
