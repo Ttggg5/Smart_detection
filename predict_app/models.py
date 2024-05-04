@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
 
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
