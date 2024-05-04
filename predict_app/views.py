@@ -7,13 +7,15 @@ from .models import Account
 from django.contrib.auth.hashers import check_password  # 用于验证加密密码
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth import logout
 # Create your views here.
 def home(request):
     username = request.session.get('username', 'Guest')  # 获取存储的用户名
     return render(request, 'index.html', {'username': username})
 def logout_view(request):
-    request.session.flush()  # 清除会话数据
-    return redirect('login')  # 返回登录页
+    logout(request)  # 终止用户会话
+    messages.success(request, "您已成功登出。")
+    return redirect('login')  # 重定向到登录页
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')  # 获取用户名
