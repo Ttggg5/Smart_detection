@@ -71,9 +71,9 @@
         <a class="navbar-brand" href="#">瑕疵分析系统</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">首页</a></li> <!-- 链接到首页 -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">首頁</a></li> <!-- 链接到首页 -->
                 <li class="nav-item"><a class="nav-link" href="#">分析</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">聯繫我們</a></li>
             </ul>
         </div>
     </nav>
@@ -98,11 +98,24 @@
         </div>
     </div>
     {% if messages %}
-                <div class="alert alert-danger">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                </div>
+        <div id="alert-message" class="alert alert-danger">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+         <script>
+            setTimeout(function() {
+                var alertBox = document.getElementById("alert-message");
+                if (alertBox) {
+                    // 使用动画淡出效果
+                    alertBox.style.transition = "opacity 0.5s"; // 淡出
+                    alertBox.style.opacity = 0; // 淡出
+                    setTimeout(function() {
+                        alertBox.style.display = "none"; // no display
+                    }, 500); //
+                }
+            }, 1000); // 1 second to 淡出
+        </script>
     {% endif %}
     <footer>
         <p>© 2024 瑕疵分析公司 | 聯絡資訊: xxx@example.com</p> <!--  -->
