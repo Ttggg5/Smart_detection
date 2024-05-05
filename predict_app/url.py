@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path
 from .views import home, login
 from . import views  # 导入视图模块

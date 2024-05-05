@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
-
+from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -26,3 +27,10 @@ class Account(models.Model):
 
     def __str__(self):
         return self.username  # 返回用户名
+
+
+@admin.register(Account)
+class AccountAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Account._meta.fields]
+
+    #list_display = ['username', 'password', 'created_at']
