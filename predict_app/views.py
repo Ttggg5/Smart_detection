@@ -10,8 +10,10 @@ from django.urls import reverse
 from django.contrib.auth import logout
 # Create your views here.
 def home(request):
-    username = request.session.get('username', 'Guest')  # 获取存储的用户名
-    return render(request, 'index.html', {'username': username})
+    username = request.session.get('username')  # 获取存储的用户名
+    if not username:
+        return render(request, 'index.html', {'username': 'Guest', 'is_logged_in': False})
+    return render(request, 'index.html', {'username': username, 'is_logged_in': True})
 def logout_view(request):
     logout(request)  # 终止用户会话
     request.session.flush()  # 清除所有会话数据

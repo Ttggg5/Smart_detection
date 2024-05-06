@@ -67,8 +67,13 @@
                     <span class="nav-link">Hello, {{ username }}</span>
                 </li>
                 <li class="nav-item">
-                    <!-- 登出链接 -->
-                   <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">登出</a></li> <!-- 登出链接 -->
+                    {% if is_logged_in %}
+                        <!-- 登出链接 -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">登出</a></li>
+                    {% else %}
+                        <!-- 登入链接 -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">登入</a></li>
+                    {% endif %}
                 </li>
             </ul>
         </div>
